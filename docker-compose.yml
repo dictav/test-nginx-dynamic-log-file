@@ -1,0 +1,17 @@
+version: '3'
+
+networks:
+  nginx:
+
+services:
+  nginx:
+    build: "nginx"
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+    volumes:
+      - "./mylog:/mylog"
+
+  backend:
+    build: "backend"
